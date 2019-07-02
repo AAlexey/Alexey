@@ -1,0 +1,42 @@
+using System;
+namespace LAB8
+{
+    class Program
+    {
+        private static double x1, y1, x2, y2, xx, yy;
+        static void Main(string[] args)
+        {
+            Vvod();
+            Reshenie(out double c, out double c1, out double c2);
+            Result(c, c1, c2);
+        }
+        private static void Vvod()
+        {
+            Console.Write("x1=");
+            x1 = double.Parse(Console.ReadLine());
+            Console.Write("y1=");
+            y1 = double.Parse(Console.ReadLine());
+            Console.Write("x2=");
+            x2 = double.Parse(Console.ReadLine());
+            Console.Write("y2=");
+            y2 = double.Parse(Console.ReadLine());
+            Console.Write("Любой x=");
+            xx = double.Parse(Console.ReadLine());
+            Console.Write("Любой y=");
+            yy = double.Parse(Console.ReadLine());
+        }
+        private static void Reshenie(out double c, out double c1, out double c2)
+        {
+            c = Math.Sqrt(Math.Pow(x1 - x2, 2) + Math.Pow(y1 - y2, 2));
+            c1 = Math.Sqrt(Math.Pow(x1 - xx, 2) + Math.Pow(y1 - yy, 2));
+            c2 = Math.Sqrt(Math.Pow(x2 - xx, 2) + Math.Pow(y2 - yy, 2));
+        }
+        private static void Result( double c,  double c1,  double c2)
+        {
+            Console.WriteLine("Расстояние между точками 1 и 2: {0}", c);
+            Console.WriteLine("Расстояние между точками 1 и 3: {0}", c1);
+            Console.WriteLine("Расстояние между точками 2 и 3: {0}", c2);
+            Console.WriteLine("Максимальная длинна: {0}", Math.Max(Math.Max(c, c1), Math.Max(c, c2)));
+        }
+    }
+}
